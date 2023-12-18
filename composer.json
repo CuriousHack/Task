@@ -1,0 +1,16 @@
+{
+    "name": "curious/task",
+    "authors": [
+        {
+            "name": "Akande Lateef",
+            "email": "Akandelateef0@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "Core/",
+            "Http\\" : "Http/"
+        }
+    }
+}
