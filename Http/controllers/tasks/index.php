@@ -1,19 +1,21 @@
 <?php
+
 use Core\App;
+use Core\Session;
 use Core\Database;
+
 $db = App::resolve(Database::class);
 
-$tasks = $db->query("select * from tasks where user_id = :id",[
+$tasks = $db->query("select * from tasks where user_id = :id", [
     'id' => $_SESSION['user']['id']
 ])->get();
 
-if(empty($tasks)){
+if (empty($tasks)) {
     view('tasks/empty.view.php');
     exit();
 }
 
 view('tasks/index.view.php', [
-    'tasks' => $tasks
+    'tasks' => $tasks,
+    'errors' => Session::get('errors') ?? []
 ]);
-
-?>

@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Session;
 use Core\Database;
 use Core\Validator;
 
@@ -19,8 +20,6 @@ authorize($task['user_id'] === $current_user_id);
 
 //validate the user input
 
-$errors = [];
-
 if (! Validator::string($_POST['title'], 1, 50)) {
     $errors['title'] = 'Task Title of no more than 50 characters is required';
 }
@@ -31,7 +30,7 @@ if (! Validator::string($_POST['desc'], 1, 1000)) {
 //check if there is validation error
 if (count($errors)){
     return view('tasks/edit.view.php',[
-        'errors' => $errors,
+        'errors' => Session::get('errors') ?? [],
         'task' => $task
     ]);
 }
@@ -45,4 +44,3 @@ $db->query('update tasks set title = :title, details = :details where id = :id',
 //redirect the user to all task if query is successful
 
 redirect('/tasks');
-die();

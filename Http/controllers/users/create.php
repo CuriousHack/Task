@@ -1,10 +1,10 @@
 <?php
 
-$title = 'Register';
+use Core\Session;
 
-$errors = [];
+$title = 'Register';
 
 view('users/create.view.php', [
     'title' => $title,
-    'errors' => $errors
+    'errors' => Session::get('errors') ?? []
 ]);

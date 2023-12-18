@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Session;
 use Core\Database;
 
 $db = App::resolve(Database::class);
@@ -18,6 +19,6 @@ authorize($task['user_id'] === $current_user_id);
 
 view('tasks/edit.view.php', [
     'title' => $title,
-    'errors' => [],
+    'errors' => Session::get('errors') ?? [],
     'task' => $task
 ]);

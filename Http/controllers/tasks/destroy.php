@@ -15,4 +15,4 @@ $current_user_id = $_SESSION['user']['id'];
     $db->query('delete from tasks where id = :id',[
     ':id' => $_POST['id']]);
 
-    header('location: /tasks');
+    redirect('/tasks');

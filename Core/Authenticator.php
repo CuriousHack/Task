@@ -36,6 +36,7 @@ class Authenticator
                 'email' => $email,
                 'password' => password_hash($password, PASSWORD_BCRYPT)
             ]);
+                static::attempt($email, $password);
                 return true;
             }
         return false;

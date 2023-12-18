@@ -21,8 +21,8 @@ class RegisterForm
             $this->errors['email'] = 'Please provide a valid email address.';
         }
 
-        if (!Validator::string($attributes['password'])) {
-            $this->errors['password'] = 'Please provide a valid password.';
+        if (!Validator::string($attributes['password'], 7, 255)) {
+            $this->errors['password'] = 'a password of at least 7 characters is required.';
         }
     }
 

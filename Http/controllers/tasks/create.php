@@ -1,10 +1,10 @@
 <?php
 
-$title = 'Create Task';
+use Core\Session;
 
-$errors = [];
+$title = 'Create Task';
 
 view('tasks/create.view.php', [
     'title' => $title,
-    'errors' => $errors
+    'errors' => Session::get('errors') ?? []
 ]);

@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Session;
 use Core\Database;
 
 $db = App::resolve(Database::class);
@@ -16,5 +17,6 @@ $task = $db->query("select * from tasks where id = :id",[
 
 view('tasks/show.view.php', [
     'title' => $task['title'],
-    'task' => $task
+    'task' => $task,
+    'errors' => Session::get('errors') ?? []
 ]);
