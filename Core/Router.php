@@ -55,7 +55,11 @@ class Router{
     }
     protected function abort($code = 404){
         http_response_code($code);
-        require base_path("views/{$code}.php");
+        controller('error.php', [
+            'code' => $code
+        ]);
+        // require base_path("views/error.php");
+    //    require base_path("views/{$code}.php");
         die();
     }
 }

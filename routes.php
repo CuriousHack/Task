@@ -27,6 +27,8 @@ $router->post('/login', 'users/retrieve.php');
 
 $router->get('/logout', 'users/destroy.php')->only('auth');
 
+$router->get('/error', 'error.php');
+
 
 
 

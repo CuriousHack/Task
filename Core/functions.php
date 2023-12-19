@@ -26,13 +26,18 @@ function view($path, $attributes = []){
 
 function controller($path, $attributes = []){
     extract($attributes);
-    require base_path('controllers/' .$path);
+    require base_path('Http/controllers/' .$path);
 }
 
 function abort($code = 404){
     http_response_code($code);
-    require base_path("views/{$code}.php");
-    die();
+        controller('error.php', [
+            'code' => $code
+        ]);
+    // http_response_code($code);
+    // require base_path("views/error.php/{$code}");
+//    require base_path("views/{$code}.php");
+die();
 }
 
 function redirect($path)

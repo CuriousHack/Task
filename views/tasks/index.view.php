@@ -9,7 +9,7 @@ require base_path('views/partials/nav.php');
 <ul>
 <?php foreach($tasks as $task) : ?>
   <li class="<?= ($task['is_checked'] === 1) ? "checked" : ""; ?>">
-        <a class="alink" href="/task?id=<?= $task['id'] ?>"><?= htmlspecialchars($task['title']) ?></a>
+        <a class="alink" href="/task?id=<?= $task['id'] ?? ''?>"><?= htmlspecialchars($task['title']) ?></a>
       </li>
         <?php endforeach; ?>
 </ul>

@@ -8,7 +8,10 @@ $db = App::resolve(Database::class);
 
 $current_user_id = $_SESSION['user']['id'];
 
-
+$id = $_GET['id'] ?? '';
+if($id === ''){
+    abort();
+};
 $task = $db->query("select * from tasks where id = :id",[
     ':id' => $_GET['id']])
     ->find0rfail();
