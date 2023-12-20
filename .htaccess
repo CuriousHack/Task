@@ -5,8 +5,8 @@ RewriteCond %{HTTP_HOST} ^www\.task-it-6bf2613ef297\.herokuapp\.com$
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule (.*) /public/$1 [L] -->
 
-RewriteEngine On
+<!-- RewriteEngine On
 
 # Set the document root to the "public" folder
 RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule ^(.*)$ /public/$1 [L]
+RewriteRule ^(.*)$ /public/$1 [L] -->
